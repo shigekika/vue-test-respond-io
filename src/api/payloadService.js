@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { API_PAYLOAD_URL, API_PROXY_PATH } from '../constants/api'
+import { API_PROXY_PATH } from '../constants/api'
 
-const API_URL = import.meta.env.DEV ? API_PROXY_PATH : API_PAYLOAD_URL
+const API_URL = API_PROXY_PATH
 
 export const payloadService = {
   async fetchPayload() {

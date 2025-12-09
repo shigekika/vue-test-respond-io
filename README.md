@@ -129,6 +129,7 @@ VITE_API_PAYLOAD_PATH=/candidate-assessments/payload.json
 - The `.env` file is gitignored and should not be committed to version control
 - Environment variables must be prefixed with `VITE_` to be accessible in the browser
 - If variables are not set, the application uses default values from `src/constants/api.js`
+- **For Vercel Deployment**: Set these environment variables in your Vercel project settings. The serverless function at `/api/payload.js` will use these to proxy requests and avoid CORS issues.
 
 ## 💻 Development
 
@@ -181,6 +182,18 @@ npm run preview
 ```
 
 This serves the `dist/` directory using Vite's preview server.
+
+### Vercel Deployment
+
+The application is configured for deployment on Vercel with CORS handling:
+
+1. **Serverless Function**: A serverless function at `/api/payload.js` proxies requests to the S3 bucket to avoid CORS issues
+2. **Environment Variables**: Set the following in your Vercel project settings:
+   - `VITE_API_BASE_URL` (optional, has default)
+   - `VITE_API_PAYLOAD_PATH` (optional, has default)
+3. **Automatic Routing**: The `vercel.json` configuration automatically routes `/api/payload` to the serverless function
+
+**CORS Fix**: The application uses a Vercel serverless function to proxy S3 requests, eliminating CORS errors that occur when fetching directly from S3 buckets.
 
 ## 🧪 Testing
 
