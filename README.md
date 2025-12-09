@@ -2,6 +2,9 @@
 
 A modern, interactive flow chart application built with Vue 3, featuring comprehensive node creation, editing, and management capabilities with a focus on user experience, accessibility, and performance.
 
+🔗 **Live Demo**: [https://vue-test-respond-io.vercel.app/](https://vue-test-respond-io.vercel.app/)  
+📦 **Repository**: [https://github.com/shigekika/vue-test-respond-io](https://github.com/shigekika/vue-test-respond-io)
+
 ## 📋 Table of Contents
 
 - [Features](#features)
