@@ -1,0 +1,187 @@
+@import '@vue-flow/core/dist/style.css';
+@import '@vue-flow/core/dist/theme-default.css';
+
+.vue-flow__node {
+  cursor: grab;
+}
+
+.vue-flow__node.dragging {
+  cursor: grabbing;
+}
+
+.vue-flow__edge {
+  stroke-width: 2;
+  transition: none;
+}
+
+.vue-flow__edge.selected {
+  stroke: #3b82f6;
+  stroke-width: 3;
+}
+
+.vue-flow__edge-path {
+  transition: none;
+}
+
+.vue-flow__handle {
+  width: 8px;
+  height: 8px;
+  background: #3b82f6;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.vue-flow__handle-top {
+  top: -4px;
+}
+
+.vue-flow__handle-bottom {
+  bottom: -4px;
+}
+
+.vue-flow__controls {
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  overflow: visible !important;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vue-flow__controls * {
+  overflow: visible !important;
+}
+
+.vue-flow-container,
+.vue-flow__viewport,
+.vue-flow__renderer {
+  overflow: visible !important;
+}
+
+.vue-flow__controls:hover {
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.vue-flow__controls-button {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: none;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: visible !important;
+}
+
+.vue-flow__controls-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vue-flow__controls-button:hover {
+  background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+  transform: scale(1.05);
+}
+
+.vue-flow__controls-button:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+.vue-flow__controls-button:active {
+  transform: scale(0.95);
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+}
+
+.vue-flow__controls-button[data-tooltip] {
+  position: relative;
+  overflow: visible !important;
+}
+
+.vue-flow__controls-button[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 0;
+  left: calc(100% + 12px);
+  transform: translateY(0) translateX(4px);
+  background: #1e293b !important;
+  color: #ffffff !important;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 11 !important;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.3px;
+  isolation: isolate;
+  min-width: max-content;
+  width: max-content;
+  display: block;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  mix-blend-mode: normal;
+}
+
+.vue-flow__controls-button[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+
+.vue-flow__controls-button svg {
+  position: relative;
+  z-index: 1;
+  transition: all 0.2s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.vue-flow__controls-button:hover svg {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.vue-flow__controls-button[aria-pressed="true"] {
+  background: linear-gradient(180deg, #dbeafe 0%, #bfdbfe 100%);
+}
+
+.vue-flow__controls-button[aria-pressed="true"]:hover {
+  background: linear-gradient(180deg, #bfdbfe 0%, #93c5fd 100%);
+}
+
+.vue-flow__background {
+  background-color: #fafafa;
+}
+
